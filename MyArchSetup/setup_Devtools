@@ -1,0 +1,65 @@
+i'm on arch linux GNOME yay
+
+Required Tools:
+- IntelliJ IDEA Ultimate
+- Eclipse Temurin™ JDK 17 LTS
+- MySQL 8.0 (Latest LTS)
+
+Action List:
+1. Install yay (if not already installed):
+   ```bash
+   sudo pacman -S --needed git base-devel
+   git clone https://aur.archlinux.org/yay.git
+   cd yay
+   makepkg -si
+   ```
+
+2. Install IntelliJ IDEA Ultimate:
+   ```bash
+   yay -S intellij-idea-ultimate-edition
+   ```
+
+3. Install Eclipse Temurin 17 (OpenJDK):
+   ```bash
+   yay -S temurin17-jdk
+   ```
+
+4. Install MySQL 8.0:
+   ```bash
+   # Install MySQL
+   sudo pacman -S mysql
+
+   # Initialize MySQL data directory
+   sudo mysql_install_db --datadir=/var/lib/mysql
+
+   # Start and enable MySQL service
+   sudo systemctl start mysqld
+   sudo systemctl enable mysqld
+
+   # Secure the installation
+   sudo mysql_secure_installation
+   ```
+
+5. Verify installations:
+   ```bash
+   # Check Java version (should show version 17)
+   java -version
+   
+   # Check MySQL version
+   mysql --version
+   
+   # IntelliJ can be launched from the applications menu or terminal:
+   intellij-idea-ultimate-edition
+   ```
+
+Notes:
+- IntelliJ IDEA Ultimate requires a license
+- Temurin JDK 17 will be set as the default Java runtime
+- Both applications will be available in the GNOME applications menu
+- Temurin 17 is an LTS (Long Term Support) release, suitable for production use
+- During MySQL secure installation, you'll be prompted to:
+  - Set root password
+  - Remove anonymous users
+  - Disallow root login remotely
+  - Remove test database
+  - Reload privilege tables
